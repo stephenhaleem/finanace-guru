@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="wagecalc.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wage calculator</title>
+</head>
+<body>
+    <div class="hero-section">
+        <h1>Unlock your financial potential with expert guidance</h1>
+    <div class="calculator">
+        <h2>Wage Calculator</h2>
+        <form id="wageForm">
+            <label for="hours">Hours worked:</label>
+            <input type="number" id="hours" name="hours" required><br><br>
+            <label for="rate">Hourly rate:</label>
+            <input type="number" id="rate" name="rate" required>
+            <br><br>
+            <button type="button" onclick="calculateWage()">Calculate</button>
+        </form>
+        <button type="reset" onclick="resetForm()">Reset</button>
+        <p id="result"></p>
+    </div>
+    </div>
+
+    <script>
+        function calculateWage() {
+            let hours = document.getElementById("hours").value;
+            let rate = document.getElementById("rate").value;
+            let result = document.getElementById("result");
+            let wage = hours * rate;
+            result.innerHTML = "Your wage is: " + wage;
+        }
+        function resetForm() {
+            document.getElementById("wageForm").reset();
+            document.getElementById("result").innerHTML = "";
+        }
+    </script>
+</body>
+</html>

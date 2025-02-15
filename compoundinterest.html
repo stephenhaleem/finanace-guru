@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="compoundinterest.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>compound interest calculator</title>
+</head>
+<body>
+    <div class="hero-section">
+        <h1>Unlock your financial potential with expert guidance</h1>
+    <div class="calculator">
+        <h2>Compound Interest Calculator</h2>
+        <form id="interestForm">
+            <label for="principal">Principal Amount:</label>
+            <input type="number" id="principal" name="principal" required><br><br>
+            <label for="rate">Rate of Interest (%):</label>
+            <input type="number" id="rate" name="rate" required>
+            <br><br>
+            <label for="time">Time (years):</label>
+            <input type="number" id="time" name="time" required>
+            <br><br>
+            <label for="n">Number of times interest :</label>
+            <input type="number" id="n" name="n" value="1" required>
+            <br><br>
+            <button type="button" onclick="calculateInterest()">Calculate</button>
+            <button type="reset" onclick="resetForm()">Reset</button>
+        </form>
+        <p id="result"></p>
+    </div>
+    </div>
+
+
+    <script>
+          function calculateInterest() {
+            let principal = document.getElementById("principal").value;
+            let rate = document.getElementById("rate").value / 100;
+            let time = document.getElementById("time").value;
+            let n = document.getElementById("n").value;
+            let result = document.getElementById("result");
+            let compoundInterest = principal * (1 + rate) ** time;
+            result.innerHTML = "The compound interest is: " + (compoundInterest - principal).toFixed(2);
+        }
+        function resetForm() {
+            document.getElementById("result").innerHTML = "";
+        }
+    </script>
+</body>
+</html>
